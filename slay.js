@@ -1,24 +1,22 @@
-function validateForm(event) {
-    var nameInput = document.getElementById('name').value.trim();
-    var emailInput = document.getElementById('email').value.trim();
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements with the class 'green-box'
+    var greenBoxes = document.querySelectorAll('.green-box');
 
-    if (nameInput === '' || emailInput === '') {
-        alert('Please fill in all required fields.');
-        event.preventDefault();
-        return;
+    // Function to add 'visible' class to elements in viewport or earlier
+    function showVisibleOrEarlyBoxes() {
+        var triggerOffset = window.innerHeight * 0.8; // Adjust this percentage as needed
+
+        greenBoxes.forEach(function(box) {
+            var boxTop = box.getBoundingClientRect().top;
+            if (boxTop < triggerOffset) {
+                box.classList.add('visible');
+            }
+        });
     }
 
-    alert('Form submitted successfully!');
-}
+    // Initial check when page loads
+    showVisibleOrEarlyBoxes();
 
-var fullImgBox = document.getElementById("fullImgBox");
-var fullImg = document.getElementById("fullImg");
-
-function openFullImg(pic) {
-    fullImg.src = pic;
-    fullImgBox.style.display = "flex";
-}
-
-function closeFullImg() {
-    fullImgBox.style.display = "none";
-}
+    // Event listener for scroll events to check visibility
+    window.addEventListener('scroll', showVisibleOrEarlyBoxes);
+});

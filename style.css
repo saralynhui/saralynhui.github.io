@@ -20,13 +20,15 @@ html {
     align-items: center;
     margin-left: 5%;
     margin-right: 5%;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    flex-wrap: nowrap; 
+    overflow: hidden; 
 }
 
 .directory-bar .nav-links {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    white-space: nowrap; 
 }
 
 .directory-bar a {
@@ -34,6 +36,13 @@ html {
     display: inline-block;
     font-size: 16px; /* Adjust font size as needed */
     margin: 5px; /* Add spacing between links */
+    flex-shrink: 1; /* Allow items to shrink */
+}
+
+@media (max-width: 768px) {
+    .directory-bar a {
+        font-size: 14px; /* Decrease font size */
+    }
 }
 
 
@@ -96,15 +105,20 @@ h2 {
     font-size: 20px;
 }
 
-/* Adjust font size for smaller screens */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 18px;
-    }
-}
+
 
 h1, h2, h3 {
     color: black;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 16px; /* Decrease font size for smaller screens */
+    }
+
+    p {
+        font-size: 12px; /* Decrease font size for smaller screens */
+    }
 }
 
 body {
@@ -161,6 +175,14 @@ body {
     flex-direction: column;
     max-width: 90%;
     margin: 20px auto;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly moved down */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition for the fade-in effect */
+}
+
+.green-box.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
 }
 
 /* Adjust padding for smaller screens */
@@ -178,12 +200,22 @@ body {
     color: white;
 }
 
+
 .green-box-row {
     display: flex;
     flex-direction: row;
     padding: 20px;
     justify-content: space-between;
     flex: 1;
+    align-items: center; /* Center content vertically */
+
+}
+
+.green-box-row > div{
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin: 10px;
 }
 
 /* Adjust layout for smaller screens */
@@ -195,6 +227,19 @@ body {
 }
 
 img {
+    max-width: 100%; /* Limits the image width to its container */
+    height: auto; /* Ensures the image scales proportionally */
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    img {
+        max-width: 100%; /* Ensure the image doesn't exceed its container width */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 300px; /* Adjust maximum height for smaller screens */
+    }
+}
+.p_img {
     width: 100%;
     height: auto;
     display: block;
