@@ -152,83 +152,185 @@ h1, h2, h3 {
 }
 
 body {
-    background-color: #D5888E;
+    background-color: #FFDDD6;
     align-items: center;
     font-size: 18px;
 }
 
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    justify-content: center;
-}
-
-/* Adjust layout for smaller screens */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-        padding: 15px;
-    }
-}
-
-.circular-image {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 50%;
-    padding: 20px;
-}
-
-/* Adjust size for smaller screens */
-@media (max-width: 768px) {
-    .circular-image {
-        width: 150px;
-        height: 150px;
-    }
-}
+.text-content > * {
+    margin: 0;
+  }
+  
 
 .text-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    align-items: center; /* or center, depending on design */
+    gap: 10px; /* equal spacing between child elements */
+    max-width: 600px;
 }
 
-.green-box {
+.text-content h1 {
+    font-size: 50px;
+    line-height: 1.3;
+}
+
+.text-content p {
+    font-size: 30px;
+    line-height: 1.6;
+}
+
+.green-button {
+    background-color: #869F77; /* Green */
     color: white;
-    background-color: #324E4B;
+    padding: 12px 45px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'MediumPoppins';
+    font-size: 20px;    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+
+}
+
+.green-button:hover {
+    background-color: #28842d; /* Slightly darker on hover */
+}
+
+
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 120px;
+    gap: 50px;
+    max-width: 1000px;
+    margin: auto px;
+}
+
+.home-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    max-width: 100%;
+}
+
+
+
+/* Adjust layout for smaller screens */
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .home-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .text-content {
+        text-align: center;
+        margin: 30px auto; /* smaller vertical margin on mobile */
+
+    }
+}
+
+.linkedin-logo img {
+    width: 32px; /* or 40px if you want it slightly bigger */
+    height: 32px;
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+    border-radius: 6px; /* optional: makes it cuter */
+}
+
+.linkedin-logo img:hover {
+    transform: scale(1.1); /* subtle zoom on hover */
+}
+
+
+.pink-box {
+    color: white;
+    background-color: #F1B6AC;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    max-width: 90%;
-    margin: 20px auto;
-    opacity: 0; /* Start hidden */
-    transform: translateY(20px); /* Start slightly moved down */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition for the fade-in effect */
+    width: 30%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.green-box.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Move to original position */
+.pink-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Adjust padding for smaller screens */
+.pink-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: white
+
+}
+
+.pink-box p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: white
+}
+
+.pink-box img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+
+.design-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+
+
+section {
+    margin: 50px 20px;
+}
+
+/* Responsive layout for small screens */
 @media (max-width: 768px) {
-    .green-box {
-        padding: 15px;
+    .design-row {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .pink-box {
+        width: 90%;
+        margin-bottom: 20px;
     }
 }
 
-.green-box h1 {
-    color: white;
+.pink-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.green-box h2 {
-    color: white;
-}
+
 
 .regular-row {
     display: flex;
@@ -268,30 +370,7 @@ img#csImg {
 }
 
 
-.green-box-row {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    justify-content: space-between;
-    flex: 1;
-    align-items: center; /
-}
 
-
-.green-box-row > div{
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    margin: 10px;
-}
-
-/* Adjust layout for smaller screens */
-@media (max-width: 768px) {
-    .green-box-row {
-        flex-direction: column;
-        padding: 10px;
-    }
-}
 
 img {
     max-width: 100%; /* Limits the image width to its container */
@@ -341,29 +420,45 @@ img {
     transform: scale(1.05); /* Scale up by 5% on hover */
 }
 
-.full-img {
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
+
+
+
+.lightbox {
     display: none;
-    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
     justify-content: center;
-}
-
-.full-img img {
-    width: 90%;
-    max-width: 500px;
-    height: auto;
-}
-
-.full-img span {
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+  }
+  
+  .close {
     position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 30px;
-    color: #fff;
+    top: 30px;
+    right: 50px;
+    font-size: 40px;
+    color: white;
     cursor: pointer;
-}
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    padding: 16px;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+  }
+  
+  .prev { left: 30px; }
+  .next { right: 30px; }
